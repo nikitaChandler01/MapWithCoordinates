@@ -1,0 +1,35 @@
+@import '../src/styles/variables';
+@import "../src/styles/mixins-usage";
+@import "../src/styles/typography";
+
+
+* {
+    font-family: var(--site-font);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    padding: 8px;
+    margin: 0;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.h-100 {
+    height: 100%;
+}

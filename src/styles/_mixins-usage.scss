@@ -1,0 +1,21 @@
+@use './mixins' as mixin;
+
+@include mixin.justifyText("left");
+@include mixin.justifyText("right");
+@include mixin.justifyText("center");
+@include mixin.justifyContent("start");
+@include mixin.justifyContent("center");
+@include mixin.justifyContent("end");
+@include mixin.justifyContent("space-between");
+@include mixin.alignText("top");
+@include mixin.alignText("middle");
+@include mixin.alignText("bottom");
+@include mixin.titleLvl("1");
+@include mixin.titleLvl("2");
+@include mixin.titleLvl("3");
+@include mixin.titleLvl("4");
+@include mixin.titleLvl("5");
+
+@for $i from 1 through 16 {
+    @include mixin.gap($i)
+}

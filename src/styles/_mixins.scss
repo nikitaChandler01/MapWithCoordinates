@@ -1,0 +1,29 @@
+@mixin titleLvl($lvl) {
+    .title--lvl-#{$lvl} {
+        font-size: calc(var(--base-font-size) * (#{$lvl} / 5));
+    }
+}
+
+@mixin justifyText($justify) {
+    .justify-#{$justify} {
+        text-align: #{$justify};
+    }
+}
+
+@mixin justifyContent($justify) {
+    .justify-#{$justify} {
+        justify-content: #{$justify};
+    }
+}
+
+@mixin alignText($align) {
+    .align-#{$align} {
+        vertical-align: #{$align};
+    }
+}
+
+@mixin gap($size) {
+    .gap-#{$size} {
+        gap: #{$size * 4}px;
+    }
+}

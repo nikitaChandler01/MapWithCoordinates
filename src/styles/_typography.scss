@@ -1,0 +1,18 @@
+@import './variables';
+
+.info-message {
+    line-height: 1;
+    color: $gray;
+}
+
+.primary-message {
+    line-height: 1;
+    color: $primary;
+}
+
+.error-message {
+    text-align: center;
+    line-height: 1;
+    font-size: 12px;
+    color: $danger;
+}
