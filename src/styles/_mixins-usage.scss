@@ -7,6 +7,10 @@
 @include mixin.justifyContent("center");
 @include mixin.justifyContent("end");
 @include mixin.justifyContent("space-between");
+@include mixin.alignItems("start");
+@include mixin.alignItems("center");
+@include mixin.alignItems("end");
+@include mixin.alignItems("space-between");
 @include mixin.alignText("top");
 @include mixin.alignText("middle");
 @include mixin.alignText("bottom");
@@ -15,6 +19,11 @@
 @include mixin.titleLvl("3");
 @include mixin.titleLvl("4");
 @include mixin.titleLvl("5");
+@include mixin.weight("bold");
+@include mixin.weight("regular");
+@include mixin.weight("thin");
+@include mixin.weight("bolder");
+
 
 @for $i from 1 through 16 {
     @include mixin.gap($i)

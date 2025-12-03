@@ -1,0 +1,54 @@
+@import '../../../styles/variables';
+
+.my-button {
+
+    &__link {
+        transform: none !important;
+        box-shadow: none !important;
+        background: none !important;
+
+        & svg {
+            width: fit-content !important;
+        }
+
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:disabled {
+        opacity: 0.8;
+        pointer-events: none;
+    }
+
+    &__primary:hover {
+        box-shadow: 0 8px 24px rgba(48, 33, 229, .28);
+        -webkit-transform: translateY(-3px);
+        transform: translateY(-3px);
+    }
+
+    transition: all 0.2s ease-in-out;
+
+    &:active {
+        scale: 0.98;
+    }
+
+    & svg {
+        width: $font-size-md;
+    }
+
+    font-size: $font-size-md;
+    width: fit-content;
+    padding: $padding-md $padding-3xl;
+    border-radius: $border-radius-sm;
+    border: none;
+
+    &__primary {
+        background-color: $primary;
+        color: white;
+    }
+}

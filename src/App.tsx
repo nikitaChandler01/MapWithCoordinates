@@ -1,7 +1,9 @@
-import Logo from './assets/Logo';
+import Router from 'layout/Router';
 
 function App() {
- return <Logo />;
+ return (
+   <Router />
+ );
 }
 
 export default App;

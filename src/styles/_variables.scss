@@ -1,6 +1,6 @@
 $gray: #7d828c;
 $font-color: #2A2D33;
-$danger: #fc0b36ff;
+$danger: #fd0d39ff;
 $warning: #FFFF00;
 $primary: #3021E5;
 $span-size: calc(100vw / 24);
@@ -27,3 +27,8 @@ $border-radius-xl: 16px;
 $border-radius-2xl: 20px;
 $border-radius-3xl: 20px;
 $border-radius-full: 50%;
+
+$gradient: linear-gradient(to bottom,
+        #3A88FD,
+        #977DFF,
+        #FF84F3)

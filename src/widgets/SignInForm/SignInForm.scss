@@ -1,0 +1,21 @@
+@import '../../styles/variables';
+
+.sign-in-form {
+    background: $gradient;
+
+    &__title {
+        font-size: 20px;
+    }
+
+    &__container {
+        width: 60%;
+        background: white;
+        padding: $padding-3xl;
+        border-radius: 8px;
+    }
+
+    &__actions {
+        margin-top: $margin-xl;
+    }
+
+}

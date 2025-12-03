@@ -1,0 +1,18 @@
+@import "../../../styles/variables";
+
+input {
+    padding: $padding-md;
+    border: none;
+    border-bottom: 2px solid !important;
+    border-image: linear-gradient(to right,
+            #3A88FD,
+            #977DFF,
+            #FF84F3) 1 !important;
+
+    &:active,
+    &:focus {
+        outline: none;
+        border-width: 4px;
+    }
+
+}

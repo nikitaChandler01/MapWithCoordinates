@@ -16,6 +16,12 @@
     }
 }
 
+@mixin alignItems($align) {
+    .align-#{$align} {
+        align-items: #{$align};
+    }
+}
+
 @mixin alignText($align) {
     .align-#{$align} {
         vertical-align: #{$align};
@@ -25,5 +31,11 @@
 @mixin gap($size) {
     .gap-#{$size} {
         gap: #{$size * 4}px;
+    }
+}
+
+@mixin weight($weight) {
+    .#{$weight} {
+        font-weight: #{$weight};
     }
 }

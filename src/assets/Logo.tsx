@@ -1,5 +1,5 @@
 interface Logo {
- width?: number;
+ width?: number | string;
 }
 
 const Logo = ({ width = 200 }: Logo) => {

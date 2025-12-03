@@ -1,0 +1,19 @@
+@import '../../styles/variables.scss';
+
+.sign-in {
+
+    @media (max-width: 720px) {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: $padding-md;
+    }
+
+    &__logo {
+        width: $span-size * 16;
+    }
+
+    &__form {
+        width: $span-size * 8;
+    }
+}
