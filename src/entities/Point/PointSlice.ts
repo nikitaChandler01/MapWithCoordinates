@@ -25,8 +25,6 @@ export const usePointStore = () => {
  useEffect(() => {
   if (points.length > 0) {
    savePointsInLs();
-  } else {
-   localStorage.removeItem(lsKey);
   }
  }, [points]);
 
@@ -48,6 +46,7 @@ export const usePointStore = () => {
   setPoints(prev => prev.map(item => (item.id === newPoint.id ? newPoint : item)));
  };
  const resetPoints = () => {
+  localStorage.removeItem(lsKey);
   setPoints(pointsMock.map((item, id) => ({ ...item, id })));
  };
 
