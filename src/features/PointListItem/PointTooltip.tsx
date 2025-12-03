@@ -1,0 +1,106 @@
+import { useEffect, useState } from 'react';
+import type { Point } from '../../entities/Point/Point.types';
+import { Input } from '@shared/ui/Input';
+import { Button } from '@shared/ui/Button';
+
+interface PointTooltip {
+ point: Point;
+ isEditing?: boolean;
+ editingPoint?: Point | null;
+ setEditingPoint: (item: Point | null) => void;
+ onSaveClick: (newPoint: Point) => void;
+ tooltipContainer: HTMLElement;
+}
+
+const PointTooltip = ({
+ point,
+ isEditing,
+ editingPoint,
+ setEditingPoint,
+ onSaveClick,
+ tooltipContainer,
+}: PointTooltip) => {
+ const [tooltipPos, setTooltipPos] = useState<{
+  top: number | string;
+  left: number | string;
+ }>();
+
+ useEffect(() => {
+  const rect = tooltipContainer.getBoundingClientRect();
+  setTooltipPos({
+   top: rect.top + window.scrollY,
+   left: rect.left + window.scrollX,
+  });
+ }, []);
+
+ const onEditClick = () => {
+  setEditingPoint(point);
+ };
+ const onSave = () => {
+  if (editingPoint) {
+   onSaveClick(editingPoint);
+   setEditingPoint(null);
+  }
+ };
+ const onChange = (name: keyof Point, value: string | number) => {
+  if (editingPoint) {
+   setEditingPoint({ ...editingPoint, [name]: value });
+  }
+ };
+
+ const onChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
+  onChange('name', e.target.value);
+ };
+ const onChangeAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
+  onChange('amount', Number(e.target.value));
+ };
+
+ return (
+  <div
+   className="point-list-item__tooltip"
+   style={{
+    top: tooltipPos?.top,
+    left: tooltipPos?.left,
+   }}
+  >
+   <div className="point-list-item__tooltip-content flex-vertical gap-4">
+    {isEditing ? <span className="bolder">Редактирование</span> : undefined}
+    {isEditing ? (
+     <>
+      <label>
+       <span className="info-message">Наименование</span>
+       <Input onChange={onChangeName} value={editingPoint?.name} />
+      </label>
+      <label>
+       <span className="info-message">Количество</span>
+       <Input isNumber onChange={onChangeAmount} value={editingPoint?.amount} />
+      </label>
+     </>
+    ) : (
+     <>
+      <div className="flex gap-1">
+       <span className="info-message">Наименование: </span>
+       <span>{point.name}</span>
+      </div>
+      <div className="flex gap-1">
+       <span className="info-message">Количество: </span>
+       <span>{point.amount}</span>
+      </div>
+     </>
+    )}
+    <div className="point-list-item__tooltip-action flex w-100 justify-end">
+     {isEditing ? (
+      <Button type="primary" onClick={onSave}>
+       Сохранить
+      </Button>
+     ) : (
+      <Button onClick={onEditClick}>Изменить</Button>
+     )}
+    </div>
+   </div>
+  </div>
+ );
+};
+
+export default PointTooltip;
+

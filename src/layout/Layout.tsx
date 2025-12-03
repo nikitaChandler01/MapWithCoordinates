@@ -12,7 +12,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
      <Logo />
      <Button link icon={<LogoutIcon width={26} />} />
     </header>
-    <div className="layout__content flex-vertical">{children}</div>
+    <div className="layout__content h-100 flex-vertical">{children}</div>
    </div>
   </div>
  );
