@@ -1,9 +1,7 @@
 import { type Point } from '@entities/Point';
 import { memo, useRef, useState } from 'react';
-import './PointListItem.scss';
-import { Input } from '@shared/ui/Input';
-import { Button } from '@shared/ui/Button';
 import { createPortal } from 'react-dom';
+import './PointListItem.scss';
 import PointTooltip from './PointTooltip';
 
 interface PointListItem {
