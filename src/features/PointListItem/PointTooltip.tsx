@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { Point } from '../../entities/Point/Point.types';
 import { Input } from '@shared/ui/Input';
 import { Button } from '@shared/ui/Button';
@@ -9,7 +9,7 @@ interface PointTooltip {
  editingPoint?: Point | null;
  setEditingPoint: (item: Point | null) => void;
  onSaveClick: (newPoint: Point) => void;
- tooltipContainer: HTMLElement;
+ tooltipTrigger: HTMLElement;
 }
 
 const PointTooltip = ({
@@ -18,15 +18,17 @@ const PointTooltip = ({
  editingPoint,
  setEditingPoint,
  onSaveClick,
- tooltipContainer,
+ tooltipTrigger,
 }: PointTooltip) => {
  const [tooltipPos, setTooltipPos] = useState<{
   top: number | string;
   left: number | string;
  }>();
+ const tooltipRef = useRef<HTMLDivElement | null>(null);
 
  useEffect(() => {
-  const rect = tooltipContainer.getBoundingClientRect();
+  const rect = tooltipTrigger.getBoundingClientRect();
+  console.log(rect.top + window.scrollY);
   setTooltipPos({
    top: rect.top + window.scrollY,
    left: rect.left + window.scrollX,
@@ -57,10 +59,12 @@ const PointTooltip = ({
 
  return (
   <div
+   ref={tooltipRef}
    className="point-list-item__tooltip"
    style={{
     top: tooltipPos?.top,
     left: tooltipPos?.left,
+    transform: 'translate(10px, -50%)',
    }}
   >
    <div className="point-list-item__tooltip-content flex-vertical gap-4">
@@ -88,11 +92,14 @@ const PointTooltip = ({
       </div>
      </>
     )}
-    <div className="point-list-item__tooltip-action flex w-100 justify-end">
+    <div className="point-list-item__tooltip-action flex w-100 gap-2 justify-end">
      {isEditing ? (
-      <Button type="primary" onClick={onSave}>
-       Сохранить
-      </Button>
+      <>
+       <Button onClick={() => setEditingPoint(null)}>Отмена</Button>
+       <Button type="primary" onClick={onSave}>
+        Сохранить
+       </Button>
+      </>
      ) : (
       <Button onClick={onEditClick}>Изменить</Button>
      )}

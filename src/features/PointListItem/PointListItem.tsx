@@ -50,7 +50,7 @@ const PointListItem = ({ point, onSaveClick }: PointListItem) => {
         editingPoint={editingPoint}
         onSaveClick={onSaveClick}
         setEditingPoint={setEditingPoint}
-        tooltipContainer={itemRef.current!}
+        tooltipTrigger={itemRef.current!}
        />,
        document.body
       )
