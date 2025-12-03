@@ -26,9 +26,10 @@ const PointTooltip = ({
  }>();
  const tooltipRef = useRef<HTMLDivElement | null>(null);
 
+ //TODO здесь на подумать. В Antd есть autoAdjustOverflow для перерасчета коорд-ов тултипа.
+ //Тянуть либу из за такого функционала не разумно
  useEffect(() => {
   const rect = tooltipTrigger.getBoundingClientRect();
-  console.log(rect.top + window.scrollY);
   setTooltipPos({
    top: rect.top + window.scrollY,
    left: rect.left + window.scrollX,
