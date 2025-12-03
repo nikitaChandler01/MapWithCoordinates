@@ -17,6 +17,11 @@ const PointListItem = ({ point, onSaveClick }: PointListItem) => {
  const timerRef = useRef<any>(null);
  const itemRef = useRef<HTMLDivElement>(null);
 
+ const onSaveClick_ = (point: Point) => {
+  onSaveClick(point);
+  setIsHovered(false);
+ };
+
  const onMouseEnter = () => {
   if (timerRef.current) clearTimeout(timerRef.current);
   setIsHovered(true);
@@ -46,7 +51,7 @@ const PointListItem = ({ point, onSaveClick }: PointListItem) => {
         point={point}
         isEditing={isEditing}
         editingPoint={editingPoint}
-        onSaveClick={onSaveClick}
+        onSaveClick={onSaveClick_}
         setEditingPoint={setEditingPoint}
         tooltipTrigger={itemRef.current!}
        />,
