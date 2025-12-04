@@ -5,6 +5,7 @@
     padding: variables.$padding-xl;
 
     &__container {
+        min-width: 760px;
         width: fit-content;
     }
 
