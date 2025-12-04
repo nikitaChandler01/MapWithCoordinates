@@ -3,7 +3,7 @@
 .my-button {
 
     &--danger {
-        background:variables.$danger;
+        background: variables.$danger;
         color: white;
         font-weight: bold;
     }
@@ -44,17 +44,17 @@
     }
 
     & svg {
-        width:variables.$font-size-md;
+        width: variables.$font-size-md;
     }
 
-    font-size:variables.$font-size-md;
+    font-size: variables.$font-size-md;
     width: fit-content;
-    padding:variables.$padding-mdvariables.$padding-3xl;
-    border-radius:variables.$border-radius-sm;
+    padding: variables.$padding-md variables.$padding-3xl;
+    border-radius: variables.$border-radius-sm;
     border: none;
 
     &__primary {
-        background-color:variables.$primary;
+        background-color: variables.$primary;
         color: white;
     }
 }
