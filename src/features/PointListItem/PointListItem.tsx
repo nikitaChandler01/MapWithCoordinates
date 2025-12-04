@@ -25,6 +25,7 @@ const PointListItem = ({ dragId, point, onSaveClick, onDeleteClick }: PointListI
  };
 
  const onMouseEnter = () => {
+  if (document.querySelector('.context-menu-content')) return;
   if (isDragging) return;
   if (timerRef.current) clearTimeout(timerRef.current);
   setIsHovered(true);
@@ -69,6 +70,9 @@ const PointListItem = ({ dragId, point, onSaveClick, onDeleteClick }: PointListI
       isDragging ? 'point-list-item__dot--dragging' : ''
      }`}
     />
+    <span className="point-list-item__label" style={{}}>
+     {point.name}
+    </span>
    </div>
   </div>
  );

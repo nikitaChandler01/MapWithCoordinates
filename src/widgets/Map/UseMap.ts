@@ -1,4 +1,5 @@
 import type { Point } from '@entities/Point';
+import { getCursorPositionInPercents } from '@shared/lib/getCursorPositionInPercents';
 import { useRef, useState, type Dispatch, type SetStateAction } from 'react';
 
 interface UseMap {
@@ -22,17 +23,14 @@ export const useMap = ({ setPoints }: UseMap) => {
   }
  };
 
- const handleMouseMove = (e: React.MouseEvent) => {
+ const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>,) => {
   if (!dragId || !mapRef.current) return;
 
-  const rect = mapRef.current.getBoundingClientRect();
-  let x = ((e.clientX - rect.left) / rect.width) * 100;
-  let y = ((e.clientY - rect.top) / rect.height) * 100;
+  const { x, y } = getCursorPositionInPercents(e, mapRef.current);
 
-  x = Math.max(0, Math.min(100, x));
-  y = Math.max(0, Math.min(100, y));
-
-  setPoints(prev => prev.map(point => (point.id === dragId ? { ...point, x, y } : point)));
+  setPoints(prev =>
+   prev.map(point => (point.id === dragId ? { ...point, x, y } : point))
+  );
  };
 
  return {

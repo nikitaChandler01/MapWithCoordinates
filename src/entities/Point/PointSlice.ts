@@ -34,8 +34,23 @@ export const usePointStore = () => {
 
  const selectPoints = () => points;
 
- const addPoint = (point: Point) => {
-  setPoints(prev => [...prev, point]);
+ const addPoint = ({ x, y }: { x: number; y: number }) => {
+  const date = new Date();
+  const day = date.getUTCDate();
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  setPoints(prev => [
+   ...prev,
+   {
+    id: Date.now(),
+    name: `Новая точка от ${hours}:${minutes} ${day}.${month}.${year}`,
+    amount: 0,
+    x,
+    y,
+   },
+  ]);
  };
 
  const deletePoint = (deletedId: number) => {

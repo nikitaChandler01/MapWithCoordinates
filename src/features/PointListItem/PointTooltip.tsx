@@ -64,6 +64,8 @@ const PointTooltip = ({
   onDeleteClick(point.id);
  };
 
+ if (!tooltipPos?.top && !tooltipPos?.left) return undefined;
+
  return (
   <div
    ref={tooltipRef}

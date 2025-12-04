@@ -1,5 +1,6 @@
 @use '../../styles/variables' as variables;
 
+
 .point-list-item {
     z-index: 2;
     position: absolute;
@@ -46,7 +47,7 @@
         position: absolute;
         padding: variables.$padding-sm;
         top: 0;
-        z-index: 93;
+        z-index: 4;
         height: fit-content;
         transform: translate(0%, -100%);
 
@@ -65,6 +66,16 @@
             display: inline-block;
         }
 
+    }
+
+    &__label {
+        display: block;
+        width: fit-content;
+        white-space: nowrap;
+        left: 5px;
+        transform: translate(-50%, 100%);
+        position: absolute;
+        user-select: none;
     }
 
 }

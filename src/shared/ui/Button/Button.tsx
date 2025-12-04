@@ -33,7 +33,7 @@ const Button = ({
    disabled={disabled || loading}
    className={`my-button my-button__${type} ${
     danger ? 'my-button--danger' : ''
-   } ${weight} ${className} ${link ? 'my-button__link' : ''}`}
+   } ${weight} ${className ? className : ''} ${link ? 'my-button__link' : ''}`}
    type={formType}
   >
    <div className="flex gap-2 w-100 justify-center align-items-center">
