@@ -19,7 +19,13 @@ const Map = () => {
    <div className="map__container h-100" onMouseMove={handleMouseMove}>
     {loading ? (
      <CenterBox>
-      <Loading width={84} />
+      <img
+       className="map__img"
+       style={{ opacity: '0.5' }}
+       src={TutzingMap}
+       height="100%"
+      />
+      <Loading width={84} style={{ position: 'absolute' }} color="red" />
      </CenterBox>
     ) : (
      <ContextMenuProvider
@@ -49,10 +55,9 @@ const Map = () => {
     )}
    </div>
    <div className="map__controls">
-    <Button onClick={resetPoints}>Сбросить</Button>
-   </div>
-   <div className="map__points-list h-100">
-    <pre>{JSON.stringify(points, null, 4)}</pre>
+    <Button type="primary" onClick={resetPoints}>
+     Сбросить
+    </Button>
    </div>
   </div>
  );

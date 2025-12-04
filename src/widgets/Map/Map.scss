@@ -2,6 +2,7 @@
 
 .map {
     user-select: none;
+    padding: $padding-xl;
 
     &__container {
         width: fit-content;

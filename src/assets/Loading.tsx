@@ -1,4 +1,6 @@
-﻿export const Loading = (props: React.SVGAttributes<SVGSVGElement>) => (
+﻿export const Loading = (
+ props: { color: string } & React.SVGAttributes<SVGSVGElement>
+) => (
  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="20px" {...props}>
   <radialGradient
    id="a12"
@@ -8,11 +10,27 @@
    fy=".3125"
    gradientTransform="scale(1.5)"
   >
-   <stop offset="0" stop-color="#E3E4FF"></stop>
-   <stop offset=".3" stop-color="#E3E4FF" stop-opacity=".9"></stop>
-   <stop offset=".6" stop-color="#E3E4FF" stop-opacity=".6"></stop>
-   <stop offset=".8" stop-color="#E3E4FF" stop-opacity=".3"></stop>
-   <stop offset="1" stop-color="#E3E4FF" stop-opacity="0"></stop>
+   <stop offset="0" stop-color={props.color ? props.color : '#E3E4FF'}></stop>
+   <stop
+    offset=".3"
+    stop-color={props.color ? props.color : '#E3E4FF'}
+    stop-opacity=".9"
+   ></stop>
+   <stop
+    offset=".6"
+    stop-color={props.color ? props.color : '#E3E4FF'}
+    stop-opacity=".6"
+   ></stop>
+   <stop
+    offset=".8"
+    stop-color={props.color ? props.color : '#E3E4FF'}
+    stop-opacity=".3"
+   ></stop>
+   <stop
+    offset="1"
+    stop-color={props.color ? props.color : '#E3E4FF'}
+    stop-opacity="0"
+   ></stop>
   </radialGradient>
   <circle
    transform-origin="center"
@@ -41,7 +59,7 @@
    transform-origin="center"
    fill="none"
    opacity=".2"
-   stroke="#E3E4FF"
+   stroke={props.color ? props.color : '#E3E4FF'}
    stroke-width="15"
    stroke-linecap="round"
    cx="100"
