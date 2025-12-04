@@ -20,7 +20,10 @@ const Map = () => {
       <Loading width={84} />
      </CenterBox>
     ) : (
-     <div className="map__wrapper h-100" ref={mapRef}>
+     <div
+      className={`map__wrapper h-100 ${!!dragId ? 'map__wrapper--dragging' : ''}`}
+      ref={mapRef}
+     >
       {points.map(point => (
        <div onMouseDown={() => startDragging(point.id)} onMouseUp={stopDragging}>
         <PointListItem
