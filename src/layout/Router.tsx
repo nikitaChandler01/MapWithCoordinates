@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router';
 import { SignInPage } from '../pages/SignInPage';
 import AuthorizedRouter from './AuthorizedRouter';
@@ -8,11 +8,11 @@ import Layout from './Layout';
 const Router = () => {
  const [isAuthorized, setIsAuthorized] = useState<boolean>(false);
 
- useEffect(() => {
+ useLayoutEffect(() => {
   const authorized = localStorage.getItem('authorized') === 'true';
   setIsAuthorized(authorized);
+  console.log(authorized);
  }, []);
-
  return (
   <AppUserContext value={{ isAuthorized, setIsAuthorized }}>
    {isAuthorized ? (

@@ -5,7 +5,7 @@ const AuthorizedRouter = () => {
  return (
   <Routes>
    <Route path="/home" element={<HomePage />} />
-   <Route path="*" element={<Navigate replace to="/home" />} />
+   <Route path="*" element={<Navigate to="/home" />} />
   </Routes>
  );
 };
