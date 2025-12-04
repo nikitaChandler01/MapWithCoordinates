@@ -2,6 +2,12 @@
 
 .my-button {
 
+    &--danger {
+        background: $danger;
+        color: white;
+        font-weight: bold;
+    }
+
     &__link {
         transform: none !important;
         box-shadow: none !important;

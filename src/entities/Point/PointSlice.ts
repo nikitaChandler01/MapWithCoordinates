@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import type { Point } from './Point.types';
 import { points as pointsMock } from '../../widgets/Map/constants';
 
@@ -42,9 +42,9 @@ export const usePointStore = () => {
   setPoints(prev => prev.filter(({ id }) => id !== deletedId));
  };
 
- const changePoint = (newPoint: Point) => {
+ const changePoint = useCallback((newPoint: Point) => {
   setPoints(prev => prev.map(item => (item.id === newPoint.id ? newPoint : item)));
- };
+ }, []);
  const resetPoints = () => {
   localStorage.removeItem(lsKey);
   setPoints(pointsMock.map((item, id) => ({ ...item, id })));
@@ -53,6 +53,7 @@ export const usePointStore = () => {
  return {
   points,
   loading,
+  setPoints,
   selectPoints,
   addPoint,
   deletePoint,

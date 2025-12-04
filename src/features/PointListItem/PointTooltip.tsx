@@ -8,6 +8,7 @@ interface PointTooltip {
  isEditing?: boolean;
  editingPoint?: Point | null;
  setEditingPoint: (item: Point | null) => void;
+ onDeleteClick: (id: number) => void;
  onSaveClick: (newPoint: Point) => void;
  tooltipTrigger: HTMLElement;
 }
@@ -16,6 +17,7 @@ const PointTooltip = ({
  point,
  isEditing,
  editingPoint,
+ onDeleteClick,
  setEditingPoint,
  onSaveClick,
  tooltipTrigger,
@@ -58,6 +60,10 @@ const PointTooltip = ({
   onChange('amount', Number(e.target.value));
  };
 
+ const onDelete = () => {
+  onDeleteClick(point.id);
+ };
+
  return (
   <div
    ref={tooltipRef}
@@ -94,6 +100,9 @@ const PointTooltip = ({
      </>
     )}
     <div className="point-list-item__tooltip-action flex w-100 gap-2 justify-end">
+     <Button danger onClick={onDelete}>
+      Удалить
+     </Button>
      {isEditing ? (
       <>
        <Button onClick={() => setEditingPoint(null)}>Отмена</Button>
