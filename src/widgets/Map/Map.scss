@@ -1,8 +1,8 @@
-@import "../../styles/variables";
+@use "../../styles/variables" as variables;
 
 .map {
     user-select: none;
-    padding: $padding-xl;
+    padding: variables.$padding-xl;
 
     &__container {
         width: fit-content;

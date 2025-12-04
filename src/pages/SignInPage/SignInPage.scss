@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@use '../../styles/variables.scss' as variables;
 
 .sign-in {
 
@@ -6,14 +6,14 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: $padding-md;
+        padding: variables.$padding-md;
     }
 
     &__logo {
-        width: $span-size * 16;
+        width: variables.$span-size * 16;
     }
 
     &__form {
-        width: $span-size * 8;
+        width: variables.$span-size * 8;
     }
 }

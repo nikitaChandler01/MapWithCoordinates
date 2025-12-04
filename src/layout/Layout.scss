@@ -1,8 +1,8 @@
-@import '../styles/variables';
+@use '../styles/variables' as variables;
 
 .layout {
-    background: $gradient;
-    padding: $padding-2xl;
+    background: variables.$gradient;
+    padding: variables.$padding-2xl;
 
     &__header {
         position: sticky;
@@ -14,8 +14,8 @@
 
     &__body {
         background: white;
-        border-radius: $border-radius-3xl;
-        padding: $padding-2xl;
+        border-radius: variables.$border-radius-3xl;
+        padding: variables.$padding-2xl;
     }
 
     &__content {

@@ -1,9 +1,9 @@
-@import '../../../styles/variables';
+@use '../../../styles/variables' as variables;
 
 .my-button {
 
     &--danger {
-        background: $danger;
+        background:variables.$danger;
         color: white;
         font-weight: bold;
     }
@@ -44,17 +44,17 @@
     }
 
     & svg {
-        width: $font-size-md;
+        width:variables.$font-size-md;
     }
 
-    font-size: $font-size-md;
+    font-size:variables.$font-size-md;
     width: fit-content;
-    padding: $padding-md $padding-3xl;
-    border-radius: $border-radius-sm;
+    padding:variables.$padding-mdvariables.$padding-3xl;
+    border-radius:variables.$border-radius-sm;
     border: none;
 
     &__primary {
-        background-color: $primary;
+        background-color:variables.$primary;
         color: white;
     }
 }

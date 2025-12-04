@@ -1,7 +1,7 @@
-@import "../../../styles/variables";
+@use "../../../styles/variables" as variables;
 
 input {
-    padding: $padding-md;
+    padding: variables.$padding-md;
     border: none;
     border-bottom: 2px solid !important;
     border-image: linear-gradient(to right,

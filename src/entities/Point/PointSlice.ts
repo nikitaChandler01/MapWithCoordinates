@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
-import type { Point } from './Point.types';
+import { useCallback, useEffect, useState } from 'react';
 import { points as pointsMock } from '../../widgets/Map/constants';
+import type { Point } from './Point.types';
 
 const lsKey = 'points';
 

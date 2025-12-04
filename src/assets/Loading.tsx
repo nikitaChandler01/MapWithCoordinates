@@ -1,5 +1,5 @@
 ﻿export const Loading = (
- props: { color: string } & React.SVGAttributes<SVGSVGElement>
+ props: { color?: string } & React.SVGAttributes<SVGSVGElement>
 ) => (
  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="20px" {...props}>
   <radialGradient
