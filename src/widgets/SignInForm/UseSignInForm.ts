@@ -16,7 +16,7 @@ export const useSignInForm = () => {
   handleSubmit,
  } = useForm<IFormInput>();
  const [loading, setLoading] = useState<boolean>(false);
-
+ const [error, setError] = useState<string>();
  const { setIsAuthorized } = useContext(AppUserContext);
 
  const onSubmit: SubmitHandler<IFormInput> = data => {
@@ -32,6 +32,7 @@ export const useSignInForm = () => {
      resolve(data);
     } else {
      setLoading(false);
+     setError('Ошибка авторизации');
      reject('Ошибка авторизации');
     }
    }, 3000);
@@ -41,6 +42,7 @@ export const useSignInForm = () => {
  const onSubmitClick = () => handleSubmit(onSubmit);
 
  return {
+  error,
   register,
   handleSubmit,
   onSubmit,

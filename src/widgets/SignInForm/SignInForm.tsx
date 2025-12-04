@@ -8,18 +8,21 @@ import './SignInForm.scss';
 import { useSignInForm } from './UseSignInForm';
 
 const SignInForm = () => {
- const { register, handleSubmit, onSubmit, loading, errors } = useSignInForm();
+ const { error, register, handleSubmit, onSubmit, loading, errors } = useSignInForm();
  return (
   <div className="sign-in-form h-100 w-100">
    <CenterBox>
     <div className="sign-in-form__container">
      <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex-vertical gap-6 w-100">
-       <span className="sign-in-form__title info-message">Авторизация</span>
+       <div className="flex-vertical gap-2">
+        <span className="sign-in-form__title info-message">Авторизация</span>
+        <span className="error-message">{error}</span>
+       </div>
        <div className="flex-vertical w-100 gap-4">
         <Input
          disabled={loading}
-         placeholder="Логин"
+         placeholder="Логин (test)"
          {...register('login', {
           required: {
            value: true,
@@ -36,7 +39,7 @@ const SignInForm = () => {
         />
         <Input
          disabled={loading}
-         placeholder="Пароль"
+         placeholder="Пароль (test)"
          type="password"
          {...register('password', {
           required: {
